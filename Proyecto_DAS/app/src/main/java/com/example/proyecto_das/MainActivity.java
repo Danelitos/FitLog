@@ -32,18 +32,10 @@ public class MainActivity extends AppCompatActivity implements DialogoActivity.L
     private BaseDatos db;
     private RecyclerView recyclerView;
 
-    private static final int PERMISSION_REQUEST_READ_EXTERNAL_STORAGE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Verificar y solicitar permiso de lectura de almacenamiento externo si es necesario
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_REQUEST_READ_EXTERNAL_STORAGE);
-            }
-        }
 
         cambiarIdioma(); // Cambia el idioma de la aplicación según la configuración guardada
 

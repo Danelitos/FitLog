@@ -1,10 +1,13 @@
 package com.example.proyecto_das;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
@@ -37,10 +40,19 @@ public class AnadirEjercicioActivity extends AppCompatActivity implements Dialog
     private static final int DIALOGO_CERRAR_SESION = 1;
     private static final int DIALOGO_ANADIR_EJERCICIO = 2;
     private static final int REQUEST_CODE_SELECT_IMAGE = 1001;
+    private static final int PERMISSION_REQUEST_READ_EXTERNAL_STORAGE = 1;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Verificar y solicitar permiso de lectura de almacenamiento externo si es necesario
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            if (checkSelfPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_REQUEST_READ_EXTERNAL_STORAGE);
+            }
+        }
+
         cambiarIdioma(); // Cambia el idioma de la aplicación según la configuración guardada
         setContentView(R.layout.activity_anadirejercicio);
         setSupportActionBar(findViewById(R.id.labarra));
