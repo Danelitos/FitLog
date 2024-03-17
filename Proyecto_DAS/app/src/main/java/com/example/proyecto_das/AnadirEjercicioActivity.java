@@ -2,6 +2,7 @@ package com.example.proyecto_das;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,6 +20,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Arrays;
+import java.util.Locale;
+
 
 public class AnadirEjercicioActivity extends AppCompatActivity implements DialogoActivity.ListenerdelDialogoAnadirEjercicio, DialogoActivity.ListenerdelDialogoMain {
 
@@ -28,6 +32,7 @@ public class AnadirEjercicioActivity extends AppCompatActivity implements Dialog
     private Button botonAnadir,botonSeleccionarImagen;
     private ImageView imagen;
     private Uri imagenUri;
+    private boolean imagenElegida=false;
 
     private static final int DIALOGO_CERRAR_SESION = 1;
     private static final int DIALOGO_ANADIR_EJERCICIO = 2;
@@ -36,6 +41,7 @@ public class AnadirEjercicioActivity extends AppCompatActivity implements Dialog
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        cambiarIdioma(); // Cambia el idioma de la aplicación según la configuración guardada
         setContentView(R.layout.activity_anadirejercicio);
         setSupportActionBar(findViewById(R.id.labarra));
 
@@ -43,12 +49,17 @@ public class AnadirEjercicioActivity extends AppCompatActivity implements Dialog
 
         // Restaurar la URI de la imagen seleccionada si hay un estado guardado
         if (savedInstanceState != null) {
-            String uri = savedInstanceState.getString("imagenUri");
-            imagenUri = Uri.parse(uri);
-            if (imagenUri != null) {
-                imagen.setImageURI(imagenUri);
+            imagenElegida = savedInstanceState.getBoolean("imagenElegida");
+            if (imagenElegida) {
+                String uri = savedInstanceState.getString("imagenUri");
+                imagenUri = Uri.parse(uri);
+                if (imagenUri != null) {
+                    imagen.setImageURI(imagenUri);
+                }
             }
         }
+
+
 
         // Obtener el nombre de usuario pasado en el intent
         Bundle extras = getIntent().getExtras();
@@ -90,6 +101,7 @@ public class AnadirEjercicioActivity extends AppCompatActivity implements Dialog
         // Guardar la URI de la imagen seleccionada
         if (imagenUri != null) {
             outState.putString("imagenUri", imagenUri.toString());
+            outState.putBoolean("imagenElegida", true);
         }
     }
 
@@ -219,6 +231,34 @@ public class AnadirEjercicioActivity extends AppCompatActivity implements Dialog
         botonSeleccionarImagen = findViewById(R.id.botonSeleccionarImagen);
         botonAnadir.setBackgroundColor(getResources().getColor(colorId));
         botonSeleccionarImagen.setBackgroundColor(getResources().getColor(colorId));
+    }
+
+    // Método para cambiar el idioma de la aplicación
+    private void cambiarIdioma() {
+        // Obtener el idioma guardado en las preferencias compartidas
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String idiomaGuardado = prefs.getString("idioma", "");
+        String codigoIdioma;
+
+        // Si no se ha guardado ningún idioma, utilizar el valor por defecto definido en los recursos
+        if (idiomaGuardado.isEmpty()) {
+            codigoIdioma = "es";
+        }
+        else{
+            // Obtener el código de idioma correspondiente al idioma guardado
+            String[] idiomasValues = getResources().getStringArray(R.array.idiomas_values);
+            int index = Arrays.asList(getResources().getStringArray(R.array.idiomas)).indexOf(idiomaGuardado);
+            codigoIdioma = idiomasValues[index];
+        }
+
+        // Cambiar el idioma si es diferente del idioma actual
+        if (!codigoIdioma.equals(getResources().getConfiguration().locale.getLanguage())) {
+            Locale locale = new Locale(codigoIdioma);
+            Locale.setDefault(locale);
+            Configuration config = getBaseContext().getResources().getConfiguration();
+            config.setLocale(locale);
+            getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+        }
     }
 
 }

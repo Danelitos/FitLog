@@ -23,7 +23,7 @@
     <string name="dlg_borrarT">Borrar ejercicio</string>
     <string name="dlg_borrarQ">¿Estás seguro de que quieres borrar este ejercicio?</string>
     <string name="dlg_guardarT">Guardar preferencias</string>
-    <string name="dlg_guardarQ">¿Estás seguro de que quieres guardar los cambios? Esto también reiniciará la aplicación y te llevará a la página de inicio para que los cambios se apliquen correctamente.</string>
+    <string name="dlg_guardarQ">¿Estás seguro de que quieres guardar los cambios?</string>
     <string name="ntf_bienvenido">¡Bienvenido a Nuestra Aplicación!</string>
     <string name="ntf_hola">¡Hola,</string>
     <string name="ntf_bienApp">! Bienvenido a FitLog.</string>
@@ -31,6 +31,7 @@
     <string name="ts_informar_campos">Por favor completa todos los campos</string>
     <string name="ts_usuario_existe">El nombre de usuario ya existe</string>
     <string name="ts_passLongitud">La contraseña debe tener al menos 6 caracteres</string>
+    <string name="ts_registroExitoso">Registro exitoso</string>
     <string name="txt_guardado">Ejercicios guardados en: </string>
     <string name="txt_error">Error al guardar los ejercicios</string>
     <string name="txt_ejercicios">ejercicios_</string>

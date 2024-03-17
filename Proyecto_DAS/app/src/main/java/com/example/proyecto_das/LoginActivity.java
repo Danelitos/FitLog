@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -76,11 +77,18 @@ public class LoginActivity extends AppCompatActivity {
         // Obtener el idioma guardado en las preferencias compartidas
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String idiomaGuardado = prefs.getString("idioma", "");
+        String codigoIdioma;
 
-        // Obtener el código de idioma correspondiente al idioma guardado
-        String[] idiomasValues = getResources().getStringArray(R.array.idiomas_values);
-        int index = Arrays.asList(getResources().getStringArray(R.array.idiomas)).indexOf(idiomaGuardado);
-        String codigoIdioma = idiomasValues[index];
+        // Si no se ha guardado ningún idioma, utilizar el valor por defecto definido en los recursos
+        if (idiomaGuardado.isEmpty()) {
+            codigoIdioma = "es";
+        }
+        else{
+            // Obtener el código de idioma correspondiente al idioma guardado
+            String[] idiomasValues = getResources().getStringArray(R.array.idiomas_values);
+            int index = Arrays.asList(getResources().getStringArray(R.array.idiomas)).indexOf(idiomaGuardado);
+            codigoIdioma = idiomasValues[index];
+        }
 
         // Cambiar el idioma si es diferente del idioma actual
         if (!codigoIdioma.equals(getResources().getConfiguration().locale.getLanguage())) {

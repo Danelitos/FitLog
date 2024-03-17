@@ -10,7 +10,7 @@
     <string name="tvBotonColor">Button Color</string>
     <string name="botonGuardar">Save Changes</string>
     <string name="botonAjustes">"Settings "</string>
-    <string name="botonCerrar">Sign off</string>
+    <string name="botonCerrar">Log out</string>
     <string name="botonAnadir">Add</string>
     <string name="botonSeleccionarImg">Select Image</string>
     <string name="tvNombreEjr">Exercise name</string>
@@ -24,7 +24,7 @@
     <string name="dlg_borrarT">Delete exercise</string>
     <string name="dlg_borrarQ">¿Are you sure you want to delete this exercise?</string>
     <string name="dlg_guardarT">Save preferences</string>
-    <string name="dlg_guardarQ">¿Are you sure you want to save your changes? This will also restart the app and take you to the homepage for the changes to be applied correctly.</string>
+    <string name="dlg_guardarQ">¿Are you sure you want to save your changes?</string>
     <string name="ntf_bienvenido">¡Welcome to Our Application!</string>
     <string name="ntf_hola">¡Hello,</string>
     <string name="ntf_bienApp">! Welcome to FitLog.</string>
@@ -35,4 +35,5 @@
     <string name="txt_error">Error saving exercises</string>
     <string name="txt_ejercicios">exercises_</string>
     <string name="ts_passLongitud">The password must be at least 6 characters long</string>
+    <string name="ts_registroExitoso">Successful Registration</string>
 </resources>

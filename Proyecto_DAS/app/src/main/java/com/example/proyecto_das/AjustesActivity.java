@@ -31,8 +31,10 @@ public class AjustesActivity extends AppCompatActivity implements DialogoActivit
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_ajustes);
         setSupportActionBar(findViewById(R.id.labarra));
+
 
         // Obtener el nombre de usuario pasado en el intent
         Bundle extras = getIntent().getExtras();
@@ -264,7 +266,6 @@ public class AjustesActivity extends AppCompatActivity implements DialogoActivit
     public void onBackPressed() {
         super.onBackPressed();
         finish();
-        Log.d("ATRAS","");
         Intent i = new Intent(AjustesActivity.this, MainActivity.class);
         i.putExtra("usuario", usuario);
         startActivity(i);
