@@ -1,0 +1,15 @@
+<resources>
+    <string-array name="idiomas">
+        <item>Español</item>
+        <item>English</item>
+    </string-array>
+    <string-array name="idiomas_values">
+        <item>es</item>
+        <item>en</item>
+    </string-array>
+    <string-array name="colores">
+        <item>Por defecto</item>
+        <item>Verde</item>
+        <item>Azul</item>
+    </string-array>
+</resources>

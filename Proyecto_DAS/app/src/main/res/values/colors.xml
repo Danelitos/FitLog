@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="negro">#FF000000</color>
+    <color name="blanco">#FFFFFFFF</color>
+    <color name="defecto">#52525A</color>
+    <color name="Verde">#0D750D</color>
+    <color name="Azul">#04abb3</color>
+</resources>

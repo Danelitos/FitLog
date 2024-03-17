@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Proyecto_DAS</string>
+    <string name="label_usuario">Usuario</string>
+    <string name="label_contraseña">Contraseña</string>
+    <string name="boton_Inicio">Iniciar Sesion</string>
+    <string name="label_Registro">Registrarme</string>
+    <string name="boton_Cuenta">¿Ya tienes cuenta?</string>
+    <string name="tvIdioma">Idioma de la Aplicacion</string>
+    <string name="tvBotonColor">Color de los botones</string>
+    <string name="botonGuardar">Guardar Cambios</string>
+    <string name="botonAjustes">Ajustes</string>
+    <string name="botonCerrar">Cerrar Sesion</string>
+    <string name="botonAnadir">Añadir</string>
+    <string name="botonSeleccionarImg">Seleccionar Imagen</string>
+    <string name="tvNombreEjr">Nombre del ejercicio</string>
+    <string name="dlg_cerrarSesionT">Cerrar sesion</string>
+    <string name="dlg_Aceptar">Aceptar</string>
+    <string name="dlg_Cancelar">Cancelar</string>
+    <string name="dlg_cerrarSesionQ">¿Estás seguro de que quieres cerrar la sesión?</string>
+    <string name="tvDescripcion">Descripcion</string>
+    <string name="dlg_anadirT">Añadir Ejercicio</string>
+    <string name="dlg_anadirQ">¿Estás seguro de que quieres añadir el ejercicio?</string>
+    <string name="dlg_borrarT">Borrar ejercicio</string>
+    <string name="dlg_borrarQ">¿Estás seguro de que quieres borrar este ejercicio?</string>
+    <string name="dlg_guardarT">Guardar preferencias</string>
+    <string name="dlg_guardarQ">¿Estás seguro de que quieres guardar los cambios? Esto también reiniciará la aplicación y te llevará a la página de inicio para que los cambios se apliquen correctamente.</string>
+    <string name="ntf_bienvenido">¡Bienvenido a Nuestra Aplicación!</string>
+    <string name="ntf_hola">¡Hola,</string>
+    <string name="ntf_bienApp">! Bienvenido a FitLog.</string>
+    <string name="ts_creden_incorrectas">Credenciales incorrectas</string>
+    <string name="ts_informar_campos">Por favor completa todos los campos</string>
+    <string name="ts_usuario_existe">El nombre de usuario ya existe</string>
+    <string name="ts_passLongitud">La contraseña debe tener al menos 6 caracteres</string>
+    <string name="txt_guardado">Ejercicios guardados en: </string>
+    <string name="txt_error">Error al guardar los ejercicios</string>
+    <string name="txt_ejercicios">ejercicios_</string>
+</resources>
